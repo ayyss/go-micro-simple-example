@@ -1,0 +1,23 @@
+syntax = "proto3";
+package services;
+option go_package = "../services;services";
+import "productModel.proto";
+
+message ProductRequest {
+  // @gotags: json:"product_name"
+  string ProductName = 1;
+  // @gotags: json:"number"
+  uint32 Number = 2;
+}
+
+message ProductResponse {
+  uint32 Code = 1;
+  string Msg = 2;
+  ProductModel Data = 3;
+}
+
+service ProductService {
+//  rpc ProductQuery(ProductRequest) returns(ProductResponse);
+  rpc ProductPush(ProductRequest) returns(ProductResponse);
+//  rpc ProductPop(ProductRequest) returns(ProductResponse);
+}

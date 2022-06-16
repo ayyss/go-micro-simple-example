@@ -1,0 +1,12 @@
+syntax = "proto3";
+package services;
+option go_package = "../services;services";
+
+message ProductModel {
+  // @gotags: json:"id"
+  uint32 Id = 1;
+  // @gotags: json:"product_name"
+  string ProductName = 2;
+  // @gotags: json:"number"
+  uint32 Number = 3;
+}

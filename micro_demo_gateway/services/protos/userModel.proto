@@ -1,0 +1,12 @@
+syntax = "proto3";
+package services;
+option go_package = "../services;services";
+
+message UserModel {
+  // @gotags: json:"id"
+  uint32 Id = 1;
+  // @gotags: json:"user_name"
+  string UserName = 2;
+  // @gotags: json:"password"
+  string Password = 3;
+}

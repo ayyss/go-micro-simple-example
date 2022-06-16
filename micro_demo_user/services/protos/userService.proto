@@ -1,0 +1,22 @@
+syntax = "proto3";
+package services;
+option go_package = "../services;services";
+import "userModel.proto";
+
+message UserRequest {
+  // @gotags: json:"user_name" form:"user_name" uri:"user_name"
+  string UserName = 1;
+  // @gotags: json:"password" form:"password" uri:"password"
+  string Password = 2;
+}
+
+message UserDetailResponse {
+  uint32 Code = 1;
+  string Msg = 2;
+  UserModel UserDetail = 3;
+}
+
+service UserService {
+  rpc UserLogin(UserRequest) returns(UserDetailResponse);
+  rpc UserRegister(UserRequest) returns(UserDetailResponse);
+}
